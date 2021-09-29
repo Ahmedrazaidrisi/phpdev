@@ -13,12 +13,7 @@ if (isset($_SESSION['login'])) {
                             $contact = $_REQUEST['contactno'];
 
 
-                            if (isset($_REQUEST['dinfo'])) {
-                                          $mpdf = new \Mpdf\Mpdf();
-                                          $body = "<h1>helllo there</h1>";
-                                          $mpdf->WriteHTML($body);
-                                          $mpdf->Output('details.pdf', 'D');
-                            }
+                          
 
 
                             $sql = mysqli_query($con, "UPDATE `users` set fname='$fname', lname='$lname',email='$email',dob='$dob',contact_no='$contact' where email='" . $_SESSION['login'] . "'");
@@ -72,6 +67,13 @@ if (isset($_SESSION['login'])) {
                                           //move_uploaded_file($_FILES["photo"]["tmp_name"],"studentphoto/".$_FILES["photo"]["name"]);
                             }
               }
+  
+    if (isset($_REQUEST['dinfo'])) {
+                                          $mpdf = new \Mpdf\Mpdf();
+                                          $body = "<h1>helllo there</h1>";
+                                          $mpdf->WriteHTML($body);
+                                          $mpdf->Output('details.pdf', 'D');
+                            }
 } else {
               header('location:logout.php');
 }
