@@ -9,46 +9,45 @@
 </head>
 
 <body>
-              <script>
+                          <script>
                             function validform() {
-                                          let x = document.forms["add_subject"]["sub1"].value;
+                                          let x = document.forms.add_subject.sub1.value;
                                           if (x == "") {
                                                         alert("subject 1 must be filled out");
                                                         return false;
                                           }
-                                          let y = document.forms["add_subject"]["sub2"].value;
+                                          let y = document.forms.add_subject.sub2.value;
                                           if (y == "") {
                                                         alert("subject 2 must be filled out");
                                                         return false;
                                           }
-                                          let z = document.forms["add_subject"]["sub3"].value;
+                                          let z = document.forms.add_subject.sub3.value;
                                           if (z == "") {
                                                         alert("subject 3 must be filled out");
                                                         return false;
                                           }
-                                          let q = document.forms["add_subject"]["sub4"].value;
+                                          let q = document.forms.add_subject.sub4.value;
                                           if (q == "") {
                                                         alert("subject 4 must be filled out");
                                                         return false;
                                           }
-                                          let k = document.forms["add_subject"]["sub5"].value;
+                                          let k = document.forms.add_subject.sub5.value;
                                           if (k == "") {
                                                         alert("subject 5 must be filled out");
                                                         return false;
                                           }
-                                          let r = document.forms["add_subject"]["sub6"].value;
+                                          let r = document.forms.add_subject.sub6.value;
                                           if (r == "") {
                                                         alert("subject 6 must be filled out");
                                                         return false;
                                           }
-                                          let t = document.forms["add_subject"]["sub7"].value;
+                                          let t = document.forms.add_subject.sub7.value;
                                           if (t == "") {
                                                         alert("subject 7 must be filled out");
                                                         return false;
                                           }
                             }
               </script>
-
 
               <form action="add_sublogic.php" name="add_subject" method="GET" onsubmit="return validform()">
 
