@@ -17,7 +17,36 @@ require_once __DIR__ . '/vendor/autoload.php';
 </head>
 
 <body>
-
+  <script>
+  function validform() {
+                                          const x = document.forms.profile-form.fname.value;
+                                          const x = document.profile - form.fname.value;
+                                          if (x = "") {
+                                                        alert('firstname must be filled');
+                                                        return false;
+                                          }
+                                          const y = document.forms.profile-form.lname.value;
+                                          if (y = "") {
+                                                        alert('last name must be filled');
+                                                        return false;
+                                          }
+                                          const z = document.forms.profile-form.email.value;
+                                          if (z = "") {
+                                                        alert('Email must be filled');
+                                                        return false;
+                                          }
+                                          const q = document.forms.profile-form.dob.value;
+                                          if (q = "") {
+                                                        alert('date of birth must be filled');
+                                                        return false;
+                                          }
+                                          const e = document.forms.profile-form.contactno.value;
+                                          if (e = "") {
+                                                        alert('contact number must be filled');
+                                                        return false;
+                                          }
+                            }
+    </script>
 
               <form action="myprofilelogic.php" method="post" name=profile-form onsubmit="" enctype="multipart/form-data">
                             <ul class="list-unstyled">
