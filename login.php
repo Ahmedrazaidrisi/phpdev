@@ -36,6 +36,7 @@
                             <input type="submit" name="login" value="login">
               </form><br>
               <p>dont have an account <a href="register.php">Register here</a></p>
+              <p>forget password <a href="forget-passwd.php">click here</a></p>
 </body>
 
 </html>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-                          <script>
+              <script>
                             function validform() {
                                           let x = document.forms.add_subject.sub1.value;
                                           if (x == "") {
@@ -48,6 +48,7 @@
                                           }
                             }
               </script>
+
 
               <form action="add_sublogic.php" name="add_subject" method="GET" onsubmit="return validform()">
 

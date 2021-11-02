@@ -1,5 +1,10 @@
 <?php
 
+include('pdfgen.php');
+include('xlsgen.php');
+
+
+
 $selectquery = $row = $results = "";
 include('dbconnection.php');
 require_once __DIR__ . '/vendor/autoload.php';
@@ -10,15 +15,14 @@ if (isset($_SESSION['login'])) {
 
 
 
-  $selectquery = "SELECT *  FROM `users` where email='" . $_SESSION['login'] . "' ";
+  $selectquery = "SELECT *  FROM `users`  ";
+
+
   $results = mysqli_query($con, $selectquery);
   if (mysqli_num_rows($results) > 0) {
   } else {
     echo "no details foiund";
   }
-
-
-
 
 
 
@@ -51,7 +55,7 @@ if (isset($_SESSION['login'])) {
         <a href="add_sub.php"> <i class="icon-padnote"></i>Add subjects </a>
       </li>
       <li>
-        <a href="changepasswd.php"> <i class="bi bi-arrow-clockwise"></i>Forget Password </a>
+        <a href="forget-passwd.php"> <i class="bi bi-arrow-clockwise"></i>Forget Password </a>
       </li>
       <li>
 
@@ -85,12 +89,18 @@ if (isset($_SESSION['login'])) {
         </thead>
         <tbody>
           <?php
-          while ($row = mysqli_fetch_assoc($results)) { ?>
+          while ($row = $results->fetch_assoc()) { ?>
 
 
-
+            <style>
+              table,
+              th,
+              td {
+                border: 1px solid black;
+              }
+            </style>
             <tr>
-              <th scope="row">1</th>
+              <th>1</th>
               <td><?php echo $row['fname'] ?></td>
               <td><?php echo $row['lname'] ?></td>
               <td><?php echo $row['username'] ?></td>
@@ -105,11 +115,11 @@ if (isset($_SESSION['login'])) {
               <td><?php echo $row['sub5'] ?></td>
               <td><?php echo $row['sub6'] ?></td>
             </tr>
-            <tr>
 
-              <input type="submit" name="pdf" value="download info">
 
-          <?php
+
+
+        <?php
             $fname = $row['fname'];
             $lname = $row['lname'];
             $username = $row['username'];
@@ -124,30 +134,15 @@ if (isset($_SESSION['login'])) {
             $sub5 = $row['sub5'];
             $sub6 = $row['sub6'];
             $sub7 = $row['sub7'];
+            $body = "";
 
-            if (isset($_POST['pdf'])) {
-              $mpdf = new \Mpdf\Mpdf();
-              $body = "<h1>your details</h1>
-<strong>first name:</strong>$fname <br>
-<strong>last name:</strong>$lname <br>
-<strong>username:</strong>$username <br>
-<strong>email:</strong>$email <br>
-<strong>contact-no:</strong>$contact <br>
-<strong>date of birth:</strong>$dob <br>
-<strong>course </strong>$course <br>
-<h2>your subjects</h2> <br>
-<strong>subject 1:</strong>$sub1 <br>
-<strong>subject 2:</strong>$sub2 <br>
-<strong>subject 3:</strong>$sub3 <br>
-<strong>subject 4:</strong>$sub4 <br>
-<strong>subject 5:</strong>$sub5 <br>
-<strong>subject 6:</strong>$sub6 <br>
-<strong>subject 7:</strong>$sub7 <br>
-";
 
-              $mpdf->WriteHTML($body);
-              $mpdf->Output('details.pdf', 'D');
-            }
+
+
+
+         
+
+          
           }
         } else {
           header('location:logout.php');
@@ -157,7 +152,10 @@ if (isset($_SESSION['login'])) {
 
 
 
-          ?>
+        ?>
+
+        <input type="submit" name="pdf" value="download info">
+        <input type="submit" name="exxls" value="export to xls">
 
 
     </form>

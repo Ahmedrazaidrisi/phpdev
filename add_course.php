@@ -11,7 +11,7 @@
 <body>
               <script>
                             function validform() {
-                                          let x = document.forms["addcourse"]["add_course"].value;
+                                          let x = document.forms.addcourse.add_course.value;
                                           if (x == "") {
                                                         alert("please add course");
                                                         return false;

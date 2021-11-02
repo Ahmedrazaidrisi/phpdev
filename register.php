@@ -5,6 +5,7 @@
               <meta charset="UTF-8">
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <link rel="stylesheet" href="/css/register.css">
               <title>Register Form</title>
 </head>
 
@@ -12,38 +13,38 @@
               <script type="text/javascript">
                             function validform() {
 
-                                          let x = document.forms["register_form"]["username"].value;
+                                          let x = document.forms.register_form.username.value;
                                           if (x == "") {
                                                         alert("userName must be filled out");
                                                         return false;
                                           }
-                                          let y = document.forms["register_form"]["fname"].value;
+                                          let y = document.forms.register_form.fname.value;
                                           if (y == "") {
                                                         alert("firstname must be filled out");
                                                         return false;
                                           }
-                                          let z = document.forms["register_form"]["lname"].value;
+                                          let z = document.forms.register_form.lname.value;
                                           if (z == "") {
                                                         alert("lastname must be filled out");
                                                         return false;
                                           }
 
-                                          let a = document.forms["register_form"]["email"].value;
+                                          let a = document.forms.register_form.email.value;
                                           if (a == "") {
                                                         alert("email must be filled out");
                                                         return false;
                                           }
-                                          let B = document.forms["register_form"]["contactno"].value;
+                                          let B = document.forms.register_form.contactno.value;
                                           if (B == "") {
                                                         alert("contact number must be filled out");
                                                         return false;
                                           }
-                                          let c = document.forms["register_form"]["password"].value;
+                                          let c = document.forms.register_form.password.value;
                                           if (c == "") {
                                                         alert("password must be filled out");
                                                         return false;
                                           }
-                                          let d = document.forms["register_form"]["cpassword"].value;
+                                          let d = document.forms.register_form.cpassword.value;
                                           if (d == "") {
                                                         alert("confirm password");
                                                         return false;
@@ -67,19 +68,23 @@
 
                             }
               </script>
-              <form action="registerlogic.php" method="POST" name="register_form" onsubmit="return validform()">
-                            <input type="text" name="username" placeholder="username"><br>
-                            <input type="text " name="fname" placeholder="first name"><br>
-                            <input type="text " name="lname" placeholder="last name"><br>
-                            <input type="email" name="email" placeholder="Email"><br>
-                            <input type="number" name="contactno" placeholder="contact number">
-                            <br>
-                            <label for="dob">Date of Birth</label>
-                            <input type="date" name="dob"><br>
-                            <input type="password" name="password" placeholder="password"><br>
 
-                            <input type="password" name="cpassword" placeholder="confirm password"><br>
-                            <input type="submit" name="submit" value="register"><br>
+
+              <form action="registerlogic.php" method="POST" name="register_form" class="form" onsubmit="return validform()">
+                            <div class="form-input">
+                                          <input type="text" class="username" name="username" placeholder="username"><br>
+                                          <input type="text " name="fname" placeholder="first name"><br>
+                                          <input type="text " name="lname" placeholder="last name"><br>
+                                          <input type="email" name="email" placeholder="Email"><br>
+                                          <input type="number" name="contactno" placeholder="contact number">
+                                          <br>
+                                          <label for="dob">Date of Birth</label>
+                                          <input type="date" name="dob"><br>
+                                          <input type="password" name="password" placeholder="password"><br>
+
+                                          <input type="password" name="cpassword" placeholder="confirm password"><br>
+                                          <input type="submit" name="submit" value="register"><br>
+                            </div>
               </form>
 </body>
 

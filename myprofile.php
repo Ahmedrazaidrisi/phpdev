@@ -17,8 +17,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 </head>
 
 <body>
-  <script>
-  function validform() {
+              <script>
+                            // form validation
+                            function validform() {
                                           const x = document.forms.profile-form.fname.value;
                                           const x = document.profile - form.fname.value;
                                           if (x = "") {
@@ -46,12 +47,13 @@ require_once __DIR__ . '/vendor/autoload.php';
                                                         return false;
                                           }
                             }
-    </script>
+              </script>
+
 
               <form action="myprofilelogic.php" method="post" name=profile-form onsubmit="" enctype="multipart/form-data">
                             <ul class="list-unstyled">
                                           <li>
-                                                        <a href="myprofile.php.html"> <i class="icon-home"></i>profile </a>
+                                                        <a href="myprofile.php"> <i class="icon-home"></i>profile </a>
                                           </li>
                                           <li class="">
                                                         <a href="dashboard.php"> <i class="icon-grid"></i>dashboard </a>
@@ -84,13 +86,17 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 
-                                          <input type="file" name="profilepic"><br>
+                                          <input type="file" name="profilepic" multiple><br>
+                                          <?php if ($num['photos'] == "") { ?>
+                                                        <img src="/photos/2020_08_minimalist-iphone-11-back-wallpaper-in-4k-5k-1920-x-1080.jpg" width="200" height="200"><?php } else { ?>
+                                                        <img src="/photos/<?php echo htmlentities($num['photos']); ?>" width="200" height="200">
+                                          <?php } ?>
                                           <input type="text" name="username" value="<?php echo htmlentities($num['username']); ?>" readonly><br>
-                                          <input type="text" name="fname" value="<?php echo htmlentities($num['fname']); ?>"><br>
-                                          <input type="text" name="lname" value="<?php echo htmlentities($num['lname']); ?>"><br>
-                                          <input type="text" name="email" value="<?php echo htmlentities($num['email']); ?>"> <br>
-                                          <input type="date " name="dob" value="<?php echo htmlentities($num['dob']) ?>"><br>
-                                          <input type="text" name="contactno" value="<?php echo htmlentities($num['contact_no']) ?>"><br>
+                                          <input type="text" name="fname" placeholder="first name" value="<?php echo htmlentities($num['fname']); ?>"><br>
+                                          <input type="text" name="lname" placeholder="last name" value="<?php echo htmlentities($num['lname']); ?>"><br>
+                                          <input type="text" name="email" placeholder="email address" value="<?php echo htmlentities($num['email']); ?>"> <br>
+                                          <input type="date " name="dob" placeholder="Date of Birth" value="<?php echo htmlentities($num['dob']) ?>"><br>
+                                          <input type="text" name="contactno" placeholder="Contact No" value="<?php echo htmlentities($num['contact_no']) ?>"><br>
                                           <input type="course" name="course" value="<?php echo htmlentities($num['course']) ?>" readonly><br>
                                           <input type="text" name="sub1" value="<?php echo htmlentities($num['sub1']); ?>" readonly><br>
                                           <input type="text" name="sub3" value="<?php echo htmlentities($num['sub2']); ?>" readonly><br>
@@ -102,7 +108,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 
-                            <?php } ?>
+                            <?php
+                            } ?>
 
                             <input type="submit" value="Update" name="update"><br>
                             <input type="submit" name="dinfo" value="download info"><br>
